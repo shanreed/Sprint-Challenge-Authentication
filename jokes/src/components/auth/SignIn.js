@@ -6,7 +6,7 @@ import axios from "axios";
 class SignIn extends React.Component {
   state = {
     username: "shannon",
-    password: "shannonpassword"
+    password: "password"
   };
 
   handleChange = event => {
