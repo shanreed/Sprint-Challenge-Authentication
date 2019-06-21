@@ -36,7 +36,7 @@ class SignIn extends React.Component {
         <form onSubmit = {this.submitHandler}>
           <div>
             <label htmlFor = "username" />
-            Username:
+            Username&nbsp;
             <input
               id = "username"
               onChange = {this.handleChange}
@@ -47,7 +47,7 @@ class SignIn extends React.Component {
           </div>
           <div>
             <label htmlFor = "password" />
-            Password:
+            Password&nbsp;&nbsp;
             <input
               id = "password"
               onChange = {this.handleChange}
@@ -57,7 +57,7 @@ class SignIn extends React.Component {
             />
           </div>
           <div>
-            <button type = "submit">Sign In</button>
+            <button className = 'btn' type = "submit">Sign In</button>
           </div>
         </form>
       </>

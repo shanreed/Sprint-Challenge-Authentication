@@ -36,7 +36,7 @@ class SignUp extends React.Component {
         <form onSubmit = {this.submitHandler}>
           <div>
             <label htmlFor = "username" />
-            Username:
+            Username&nbsp;
             <input
               id = "username"
               onChange = {this.handleChange}
@@ -46,7 +46,7 @@ class SignUp extends React.Component {
           </div>
           <div>
             <label htmlFor = "password" />
-            Password:
+            Password&nbsp;&nbsp;
             <input
               id = "password"
               onChange = {this.handleChange}
@@ -55,7 +55,7 @@ class SignUp extends React.Component {
             />
           </div>
           <div>
-            <button  type = "submit">Sign Up</button>
+            <button className = 'btn' type = "submit">Sign Up</button>
           </div>
         </form>
       </>
