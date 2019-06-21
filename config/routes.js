@@ -2,10 +2,14 @@ const axios = require('axios');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const jwtKey =
+  process.env.JWT_SECRET ||
+  'add a .env file to root of project with the JWT_SECRET variable';
 
 const { authenticate } = require('../auth/authenticate');
 
 const Users = require('../users/users-model.js');
+
 
 module.exports = server => {
   server.post('/api/register', register);
@@ -21,7 +25,8 @@ function register(req, res) {
   Users.add(user)
     .then(saved => {
       console.log(saved)
-      res.status(201).json({saved})
+      const token = generateToken(user)
+      res.status(201).json({saved, token})
     })
     .catch(error => {
       res.status(500).json(error);
@@ -34,9 +39,8 @@ function login(req, res) {
        .first()
        .then(user => {
           if (user && bcrypt.compareSync(password, user.password)) {
-            res.status(200).json({
-              message: `Welcome ${user.username}!`
-            });
+            const token = generateToken(user)
+            res.status(200).json({message: `Welcome Back ${user.username}!`, token});
           } else {
             res.status(401).json({ message: 'You can not enter' });
           }
@@ -44,6 +48,12 @@ function login(req, res) {
         .catch(error => {
           res.status(500).json(error);
         });
+}
+
+function generateToken(user) {
+  const payload = {subject: user.id, username: user.username};
+  const options = { expiresIn: '1h'};
+  return jwt.sign(payload, jwtKey, options)
 }
 
 function getJokes(req, res) {
