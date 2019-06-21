@@ -22,7 +22,7 @@ class JokesList extends React.Component {
   render() {
     return (
       <>
-        <h2>JOKES</h2>
+        <h2 className = 'form-header'>JOKES</h2>
         <ul>
           {this.state.jokes.map(joke => (
             <li key = {joke.id}>{joke.joke}</li>

@@ -16,31 +16,31 @@ function logout() {
   return (
     <>
       <header>
-        <NavLink to="/signin" >
-          SignIn
+        <menu>
+        <NavLink  to="/signin" >
+          <button className = 'active nav-btn'>SignIn</button>
         </NavLink>
         &nbsp;&nbsp;&nbsp;&nbsp;
 
-        <NavLink to="/signup" >
-         SignUp
+        <NavLink  to="/signup" >
+        <button className = 'active nav-btn'>SignUp</button>
         </NavLink>
         &nbsp;&nbsp;&nbsp;&nbsp;
 
-        <NavLink to="/jokes">
-          Jokes
+        <NavLink  to="/jokes">
+        <button className = 'active nav-btn'>Jokes</button>
         </NavLink>
         &nbsp;&nbsp;&nbsp;&nbsp;
         
-        <button onClick = {logout}>
+        <button className = 'active nav-btn'onClick = {logout}>
           Logout
         </button>
-
+        </menu>
       </header>
       <main>
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <Route path="/jokes" component={JokesList} />
-        
       </main>
     </>
   );

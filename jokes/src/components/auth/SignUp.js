@@ -32,7 +32,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <>
-        <h2>Sign Up</h2>
+        <h2 className = 'form-header'>Sign Up</h2>
         <form onSubmit = {this.submitHandler}>
           <div>
             <label htmlFor = "username" />
