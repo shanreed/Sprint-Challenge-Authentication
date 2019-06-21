@@ -13,7 +13,6 @@ function logout() {
     props.history.push("/signin");
   }
 
-
   return (
     <>
       <header>
@@ -35,7 +34,7 @@ function logout() {
         <button onClick = {logout}>
           Logout
         </button>
-        
+
       </header>
       <main>
         <Route path="/signin" component={SignIn} />
