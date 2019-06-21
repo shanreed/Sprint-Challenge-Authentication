@@ -5,8 +5,8 @@ import axios from "axios";
 
 class SignIn extends React.Component {
   state = {
-    username: "shannon",
-    password: "password"
+    username: "Shannon",
+    password: "shannonpassword"
   };
 
   handleChange = event => {
@@ -14,7 +14,7 @@ class SignIn extends React.Component {
     this.setState({ [id]: value });
   };
 
-  submitHandle = event => {
+  submitHandler = event => {
     event.preventDefault();
     const endpoint = "http://localhost:3300/api/login";
     axios
@@ -33,9 +33,9 @@ class SignIn extends React.Component {
     return (
       <>
         <h2>Sign In</h2>
-        <form onSubmit={this.submitHandle}>
+        <form onSubmit = {this.submitHandler}>
           <div>
-            <label htmlFor="username" />
+            <label htmlFor = "username" />
             Username:
             <input
               id = "username"
@@ -46,10 +46,10 @@ class SignIn extends React.Component {
             />
           </div>
           <div>
-            <label htmlFor="password" />
+            <label htmlFor = "password" />
             Password:
             <input
-              id="password"
+              id = "password"
               onChange = {this.handleChange}
               value = {this.state.password}
               type = "password"
@@ -57,7 +57,7 @@ class SignIn extends React.Component {
             />
           </div>
           <div>
-            <button type="submit">Sign In</button>
+            <button type = "submit">Sign In</button>
           </div>
         </form>
       </>

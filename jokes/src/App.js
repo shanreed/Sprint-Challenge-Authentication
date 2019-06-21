@@ -3,11 +3,17 @@ import { Route, NavLink, withRouter } from 'react-router-dom';
 
 
 import "./App.css";
-import SignIn from './auth/SignIn.js';
-import SignUp from './auth/SignUp.js';
-import JokesList from './jokes/Jokes';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
+import JokesList from './components/jokes/Jokes';
 
-function App() {
+function App(props) {
+function logout() {
+    localStorage.removeItem("jwt");
+    props.history.push("/signin");
+  }
+
+
   return (
     <>
       <header>
@@ -25,6 +31,10 @@ function App() {
           Jokes
         </NavLink>
         &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <button onClick = {logout}>
+          Logout
+        </button>
         
       </header>
       <main>
